@@ -3,56 +3,79 @@ import { css } from '@emotion/core';
 import Layout  from '../componets/layouts/Layout';
 import { Formulario, Campo, InputSubmit } from '../componets/ui/Formulario';
 
+// validaciones
 
-const CrearCuenta = () => (
-  
-	<div>
-		<Layout>
-			<>
-			<h1
-			css={css`
-			text-align: center;
-			margin-top: 5rem;
-			`}
-			>Crear Cuenta</h1>
-			<Formulario>
-				<Campo>
-					<label htmlFor="nombre">Nombre</label>
-						<input type="Text"
-						id="nombre"
-						placeholder="Tu nombre"
-						name= "nombre"
-					 />
-				</Campo>
+import useValidation from '../hooks/useValidation';
+import validarCrearCuenta from '../validacion/validarCrearCuenta';
 
-				<Campo>
-					<label htmlFor="email">Email</label>
-						<input type="email"
-						id="email"
-						placeholder=" Tu Email"
-						name= "email"
-					 />
-				</Campo>
+const STATE_INICIAL = {
+	nombre:  '',
+	email:   '',
+	password:''
+}
+const CrearCuenta = () => {
 
-				<Campo>
-					<label htmlFor="password">Password</label>
-						<input type="password"
-						id="password"
-						placeholder=" Tu Password"
-						name= "password"
-					 />
-				</Campo>
+	const {
+		valores,
+		errores,
+		submitForm,
+		handleSubmit,
+		handleChange} = useValidation(STATE_INICIAL, validarCrearCuenta, crearCuenta )
 
-				<InputSubmit 
-						type ="submit"
-						value="Crear cuenta" 
-					/>
-					
+	function crearCuenta() {
+		console.log('..Creando cuenta')
+	}
 
-			</Formulario>
-			</>
-		</Layout>
-	</div>
-)
+	return(
+		<div>
+			<Layout>
+				<>
+				<h1
+				css={css`
+				text-align: center;
+				margin-top: 5rem;
+				`}
+				>Crear Cuenta</h1>
+				<Formulario>
+					<Campo>
+						<label htmlFor="nombre">Nombre</label>
+							<input type="Text"
+							id="nombre"
+							placeholder="Tu nombre"
+							name= "nombre"
+						 />
+					</Campo>
+	
+					<Campo>
+						<label htmlFor="email">Email</label>
+							<input type="email"
+							id="email"
+							placeholder=" Tu Email"
+							name= "email"
+						 />
+					</Campo>
+	
+					<Campo>
+						<label htmlFor="password">Password</label>
+							<input type="password"
+							id="password"
+							placeholder=" Tu Password"
+							name= "password"
+						 />
+					</Campo>
+	
+					<InputSubmit 
+							type ="submit"
+							value="Crear cuenta" 
+						/>
+						
+	
+				</Formulario>
+				</>
+			</Layout>
+		</div>
+	);
+}
+
 export default CrearCuenta
 
