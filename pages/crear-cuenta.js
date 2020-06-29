@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import Layout  from '../componets/layouts/Layout';
-import { Formulario, Campo, InputSubmit } from '../componets/ui/Formulario';
+import { Formulario, Campo, InputSubmit, Error } from '../componets/ui/Formulario';
 
 // validaciones
 
@@ -18,9 +18,8 @@ const CrearCuenta = () => {
 	const {
 		valores,
 		errores,
-		submitForm,
 		handleSubmit,
-		handleChange} = useValidation(STATE_INICIAL, validarCrearCuenta, crearCuenta )
+		handleChange, handleBlur} = useValidation(STATE_INICIAL, validarCrearCuenta, crearCuenta )
 
 	const { nombre, email, password } = valores;
 	function crearCuenta() {
@@ -49,9 +48,12 @@ const CrearCuenta = () => {
 							name= "nombre"
 							value={nombre}
 							onChange={handleChange}
+							onBlur={handleBlur}
 						 />
 					</Campo>
-	
+
+					{errores.nombre && <Error>{ errores.nombre }</Error>}
+						
 					<Campo>
 						<label htmlFor="email">Email</label>
 							<input type="email"
@@ -60,9 +62,10 @@ const CrearCuenta = () => {
 							name= "email"
 							value={email}
 							onChange={handleChange}
+							onBlur={handleBlur}
 						 />
 					</Campo>
-	
+					{errores.email && <Error>{ errores.email }</Error>}
 					<Campo>
 						<label htmlFor="password">Password</label>
 							<input type="password"
@@ -71,9 +74,10 @@ const CrearCuenta = () => {
 							name= "password"
 							value={password}
 							onChange={handleChange}
+							onBlur={handleBlur}
 						 />
 					</Campo>
-	
+					{errores.password && <Error>{ errores.password }</Error>}
 					<InputSubmit 
 							type ="submit"
 							value="Crear cuenta" 
