@@ -7,7 +7,7 @@ border: 1px solid  #d1d1d1;
 padding: .8rem 2rem;
 margin-right: 1rem;
 background-color: ${props => props.bgColor ? '#DA552f': 'white'};
-color: ${ props => props.bgColor? 'white' : '#0000'};
+color: ${ props => props.bgColor ? 'white' : '#000'};
 
 &:last-of-type{
 	margin-right:0;

@@ -26,7 +26,7 @@ const Logo = styled.a`
 
 const Header = () => {
 
-	const usuario = true;
+	const usuario = false;
 	return ( 
 			<header
 			 css={css`
@@ -69,12 +69,12 @@ const Header = () => {
 								>Cerrar Sección</Boton>
 							</>
    
-						): (
+						) : (
 							<>
-								<Link href= "/">
+								<Link href= "/login">
 									<Boton bgColor= "true">Login</Boton>
 								</Link>
-									<Link href= "/">
+									<Link href= "/crear-cuenta">
 										<Boton>Crear Cuenta</Boton>
 									</Link>
 							</>
