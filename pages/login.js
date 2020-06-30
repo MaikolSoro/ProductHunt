@@ -29,8 +29,15 @@ const Login = () => {
 
 	const { email, password } = valores;
 	
-	function login() {
-		console.log('login..');
+	async function login() {
+		 try {
+			 await firebase.login(email, password);
+			 Router.push('/');
+		 } catch (error) {
+			console.log('Hubo un error al autenticar usuario', error.message);
+			guardarError(error.message);
+		 }
+		
 	}
 
 	return(
