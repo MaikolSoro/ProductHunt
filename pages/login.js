@@ -31,7 +31,7 @@ const Login = () => {
 	
 	async function login() {
 		 try {
-			 await firebase.login(email, password);
+			await firebase.login(email, password);
 			 Router.push('/');
 		 } catch (error) {
 			console.log('Hubo un error al autenticar usuario', error.message);
