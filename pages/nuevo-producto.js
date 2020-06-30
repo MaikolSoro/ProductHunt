@@ -15,7 +15,7 @@ import validarCrearProducto from '../validacion/validarCrearProducto';
 const STATE_INICIAL = {
 	nombre:  '',
 	empresa:   '',
-	// imagen:'',
+    imagen:'',
 	url: '',
 	descripcion: ''
 }
@@ -37,7 +37,7 @@ const NuevoProducto = () => {
 		handleSubmit,
 		handleChange, handleBlur} = useValidation(STATE_INICIAL, validarCrearProducto, crearProducto )
 
-	const { nombre, empresa, url, descripcion } = valores;
+	const { nombre, empresa, imagen, url, descripcion } = valores;
 
 	// hook de routing para redireccionar
 	const router = useRouter();
@@ -150,16 +150,16 @@ const NuevoProducto = () => {
 						<Campo>
 							<label htmlFor="imagen">Imagen</label>
 								<FileUploader 
-								accept="image/*"
-								id="imagen "
-								name= "imagen"
-								randomizeFilename
-								storageRef={firebase.storage.ref("productos")}
-								onUploadStart={handleUploadStart}
-								onUploadError={handleUploadError}
-								onUploadSuccess={handleUploadSuccess}
-								onProgress={handleProgress}
-							/>
+									accept="image/*"
+									id="imagen "
+									name= "imagen"
+									randomizeFilename
+									storageRef={firebase.storage.ref("productos")}
+									onUploadStart={handleUploadStart}
+									onUploadError={handleUploadError}
+									onUploadSuccess={handleUploadSuccess}
+									onProgress={handleProgress}
+								/>
 						</Campo>
 
 						<Campo>
