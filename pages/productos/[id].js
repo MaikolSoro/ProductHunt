@@ -2,12 +2,16 @@ import React, { useEffect, useContext,  useState } from 'react';
 import { useRouter } from 'next/router';
 import { FirebaseContext } from '../../firebase';
 import { css } from '@emotion/core';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import { es } from 'date-fns/locale';
 
 import Layout from '../../componets/layouts/Layout';
 
 import Error404 from '../../componets/layouts/404';
 
 import styled from '@emotion/styled';
+
+import { Campo, InputSubmit } from '../../componets/ui/Formulario';
 
 const ContenedorProducto = styled.div`
 	@media(min-width:768px) {
@@ -67,7 +71,34 @@ const Producto = () => {
 						>{nombre}</h1>
 						<ContenedorProducto>
 							<div>
-								1
+								<p>Publicado hace: { formatDistanceToNow( new Date(creado), {locale: es} )} </p>
+								<img src={urlImagen} />
+	                            <p>{descripcion}</p>
+
+								<h2>Agrega tu comentario</h2>
+								<form>
+								
+									<Campo>
+										<input  type=""
+												name="mensaje"
+												
+										/>
+									</Campo>
+									<InputSubmit  
+											type="submit"
+											value="Agregar Comentario"
+											
+									/>
+								</form>
+								<h2 css={css`
+									margin: 2rem 0;
+								`}>Comentarios</h2>
+								{comentarios.map(comentario => (
+									<li>
+										<p>{comentario.nombre}</p>
+										<p>Escrito por: {comentario.usuarioNombre}</p>
+									</li>
+								))}
 							</div>
 							<aside>
 								2
