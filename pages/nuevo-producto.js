@@ -5,7 +5,6 @@ import FileUploader from 'react-firebase-file-uploader';
 import Layout  from '../componets/layouts/Layout';
 import { Formulario, Campo, InputSubmit, Error } from '../componets/ui/Formulario';
 
-import firebase from '../firebase';
 import { FirebaseContext } from '../firebase';
 // validaciones
 
@@ -22,58 +21,56 @@ const STATE_INICIAL = {
 
 const NuevoProducto = () => {
 
-	 //state de las imagenes
-
-	 const [nombreImagen, guardarNombre] = useState('');
-	 const [subiendo, guardarSubiendo] = useState(false);
-	 const [progreso, guardarProgreso ] = useState(0);
-	 const [urlImagen, guardarUrlImagen] = useState('');
-
-	const [error, guardarError] = useState(false);
-
-	const {
-		valores,
-		errores,
-		handleSubmit,
-		handleChange, handleBlur} = useValidation(STATE_INICIAL, validarCrearProducto, crearProducto )
-
+	// state de las imagenes
+	const [nombreimagen, guardarNombre] = useState('');
+	const [subiendo, guardarSubiendo] = useState(false);
+	const [ progreso, guardarProgreso ] = useState(0);
+	const [urlimagen, guardarUrlImagen] = useState('');
+  
+	const [ error, guardarError] = useState(false);
+  
+	const { valores, errores, handleSubmit, handleChange, handleBlur } = useValidation(STATE_INICIAL, validarCrearProducto, crearProducto);
+  
 	const { nombre, empresa, imagen, url, descripcion } = valores;
-
+  
 	// hook de routing para redireccionar
 	const router = useRouter();
-
-	//context con las operaciones crud de firebase
-
+  
+	// context con las operaciones crud de firebase
 	const { usuario, firebase } = useContext(FirebaseContext);
-
-	// crear un usuario nuevo
-	 async function crearProducto() {
-		// si el usuario no esta autenticado llevar al login
-
-		if(!usuario) {
-			return  router.push('/login');
-		}
-
-		// crear el objeto de nuevo producto
-
-		const producto = {
-			nombre,
-			empresa,
-			url,
-			urlImagen,
-			descripcion,
-			votos: 0,
-			comentarios: [],
-			creado: Date.now()
-		}
-
-		// insertar en la base de datos
-
-		firebase.db.collection('productos').add(producto);
-		return router.push('/');
-		
-		
+  
+	async function crearProducto() {
+  
+	  // si el usuario no esta autenticado llevar al login
+	  if(!usuario) {
+		return router.push('/login');
+	  }
+  
+	  // crear el objeto de nuevo producto 
+	  const producto = {
+		  nombre, 
+		  empresa, 
+		  url, 
+		  urlimagen,
+		  descripcion,
+		  votos: 0,
+		  comentarios: [],
+		  creado: Date.now(), 
+		  creador: {
+			id: usuario.uid,
+			nombre: usuario.displayName
+		  }, 
+		  haVotado: []
+	  }
+  
+	  // insertarlo en la base de datos
+	  firebase.db.collection('productos').add(producto);
+  
+	  return router.push('/');
+  
 	}
+  
+  
 	const handleUploadStart = () => {
 		guardarProgreso(0);
 		guardarSubiendo(true);
@@ -100,7 +97,6 @@ const NuevoProducto = () => {
 			  guardarUrlImagen(url);
 			} );
 	};
-
 	return(
 		<div>
 			<Layout>

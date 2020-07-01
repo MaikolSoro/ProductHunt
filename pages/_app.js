@@ -1,9 +1,8 @@
 import App from 'next/app';
-import firebase, { firebaseContext, FirebaseContext } from '../firebase';
+import firebase, {FirebaseContext } from '../firebase';
 import useAutenticacion from '../hooks/useAuth';
 const MyApp = (props) => {
 	const usuario = useAutenticacion();
-	console.log(usuario);
 	
 	const { Component, pageProps } = props;
 	
