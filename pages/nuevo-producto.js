@@ -125,7 +125,7 @@ const NuevoProducto = () => {
 									<label htmlFor="nombre">Nombre</label>
 										<input type="Text"
 										id="nombre"
-										placeholder="Tu nombre"
+										placeholder="Nombre del producto"
 										name= "nombre"
 										value={nombre}
 										onChange={handleChange}
