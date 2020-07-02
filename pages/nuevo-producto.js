@@ -25,7 +25,7 @@ const NuevoProducto = () => {
 	const [nombreimagen, guardarNombre] = useState('');
 	const [subiendo, guardarSubiendo] = useState(false);
 	const [ progreso, guardarProgreso ] = useState(0);
-	const [urlimagen, guardarUrlImagen] = useState('');
+	const [urlImagen, guardarUrlImagen] = useState('');
   
 	const [ error, guardarError] = useState(false);
   
@@ -38,6 +38,7 @@ const NuevoProducto = () => {
   
 	// context con las operaciones crud de firebase
 	const { usuario, firebase } = useContext(FirebaseContext);
+
   
 	async function crearProducto() {
   
@@ -51,7 +52,7 @@ const NuevoProducto = () => {
 		  nombre, 
 		  empresa, 
 		  url, 
-		  urlimagen,
+		  urlImagen,
 		  descripcion,
 		  votos: 0,
 		  comentarios: [],
