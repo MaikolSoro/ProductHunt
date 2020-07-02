@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from  '@emotion/styled';
 import { css } from '@emotion/core';
 import Router from 'next/router';
@@ -29,6 +29,7 @@ const InputSubmit = styled.button`
 `;
 const Buscar = () => {
 	const [ busqueda, guardarBusqueda ] = useState('');
+
 	const buscarProducto = e => {
 		e.preventDefault();
 
@@ -51,7 +52,8 @@ const Buscar = () => {
 			<InputText 
 			type="text" 
 			placeholder= "Buscar productos"
-			onChange={e => guardarBusqueda(e.target.value) }/>
+			onChange={e => guardarBusqueda(e.target.value) }
+			/>
 
 			<InputSubmit type="submit">Buscar</InputSubmit>
 		</form>
