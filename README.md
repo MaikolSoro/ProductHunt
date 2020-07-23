@@ -4,7 +4,7 @@ basically what this website does, people create products and get feedback and vo
 They can also describe what your product does.🌐🛒
 
 
-The technologies that were used were next.js
+The technologies that were used were next.js y Firebase
 
 ## Getting Started
 
