@@ -1,4 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+It's a website, it's a little clone like product hunt,
+basically what this website does, people create products and get feedback and votes.
+They can also describe what your product does.🌐🛒
+
+
+The technologies that were used were next.js
 
 ## Getting Started
 
