@@ -6,7 +6,6 @@ They can also describe what your product does.🌐🛒
 
 ## ✔ Technologies
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [GraphQL Documentation] (https://graphql.org/)
 - Firebase (https://firebase.google.com/)
 ## 🚀 Installation
    ## Prerequisites
