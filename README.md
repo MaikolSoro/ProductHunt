@@ -39,5 +39,6 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 📷 Preview
  https://xenodochial-kowalevski-6593b1.netlify.app/
-![Captura de pantalla (59)](https://user-images.githubusercontent.com/46753453/86420177-fdf28d00-bc92-11ea-8871-0812b697f179.png)
 ![Captura de pantalla (60)](https://user-images.githubusercontent.com/46753453/86420184-ffbc5080-bc92-11ea-91f0-6214ff109a7e.png)
+![Captura de pantalla (59)](https://user-images.githubusercontent.com/46753453/86420177-fdf28d00-bc92-11ea-8871-0812b697f179.png)
+
