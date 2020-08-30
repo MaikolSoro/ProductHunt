@@ -4,9 +4,20 @@ It's a website, it's a little clone like product hunt,
 basically what this website does, people create products and get feedback and votes.
 They can also describe what your product does.🌐🛒
 
-## Technologies
+## ✔ Technologies
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - Firebase (https://firebase.google.com/)
+## 🚀 Installation
+   ## Prerequisites
+ 
+   - Have yarn installed
+   - Node 12 LTS. 
+   
+ ## Installation
+  - fork and  ```clone``` the repository to your account or download the latest release.
+  - Open the cloned repository on your machine.
+  - Run  ```yarn install``` to get all the dependencies.
+  
 ## Getting Started
 
 First, run the development server:
